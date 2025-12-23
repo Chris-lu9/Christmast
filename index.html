@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<title>Merry Christmas 🎄</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle at top, #2f4f5a, #0e1f26);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Segoe UI", sans-serif;
+    color: white;
+  }
+
+  .card {
+    width: 520px;
+    max-width: 90%;
+    background: #455e66;
+    border-radius: 28px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    position: relative;
+  }
+
+  h1 {
+    font-size: 2.6rem;
+    margin-bottom: 18px;
+  }
+
+  .text {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  .icons {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+
+  .gift-area {
+    margin-top: 10px;
+  }
+
+  .gift-btn {
+    display: inline-block;
+    padding: 16px 28px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.15);
+    border: 2px dashed rgba(255,255,255,0.6);
+    cursor: pointer;
+    font-size: 2.8rem;
+    transition: 0.3s;
+  }
+
+  .gift-btn:hover {
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.25);
+  }
+
+  .gift-text {
+    margin-top: 18px;
+    font-size: 1.4rem;
+    color: #ffd9e6;
+    display: none;
+    animation: pop 0.4s ease forwards;
+  }
+
+  @keyframes pop {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .snow {
+    position: fixed;
+    top: -10px;
+    color: white;
+    animation: fall linear infinite;
+    opacity: 0.8;
+  }
+
+  @keyframes fall {
+    to { transform: translateY(110vh); }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>🎄 Merry Christmas 🎄</h1>
+
+  <div class="text">
+    Chúc Thúy Thúyy một mùa Giáng Sinh <br>
+    ấm áp, bình yên và thật nhiều niềm vui nhớ ✨
+  </div>
+
+  <div class="icons">❤️ ⛄ 🎁</div>
+
+  <!-- Ô mở quà -->
+  <div class="gift-area">
+    <div class="gift-btn" id="gift">🎁</div>
+    <div class="gift-text" id="giftText">
+      về rùi lấy nha =))))) ❤️
+    </div>
+  </div>
+</div>
+
+<script>
+  const gift = document.getElementById("gift");
+  const text = document.getElementById("giftText");
+  let opened = false;
+
+  gift.onclick = () => {
+    if (opened) return;
+    opened = true;
+    gift.innerText = "🎊";
+    text.style.display = "block";
+  };
+
+  function snow() {
+    const s = document.createElement("div");
+    s.className = "snow";
+    s.innerText = "❄";
+    s.style.left = Math.random() * 100 + "vw";
+    s.style.fontSize = Math.random() * 12 + 10 + "px";
+    s.style.animationDuration = Math.random() * 3 + 3 + "s";
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 6000);
+  }
+  setInterval(snow, 220);
+</script>
+
+</body>
+</html>
